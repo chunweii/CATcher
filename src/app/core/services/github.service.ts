@@ -259,6 +259,10 @@ export class GithubService {
     octokit.issues.updateLabel({ owner: ORG_NAME, repo: REPO, name: labelName, current_name: labelName, color: labelColor });
   }
 
+  deleteLabel(labelName: string) {
+    octokit.issues.deleteLabel({ owner: ORG_NAME, repo: REPO, name: labelName });
+  }
+
   /**
    * Checks if the given list of users are allowed to be assigned to an issue.
    * @param assignees - GitHub usernames to be checked
