@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { ErrorHandler, NgModule, NgZone } from '@angular/core';
+import { ErrorHandler, NgModule, NgZone, SecurityContext } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
@@ -55,7 +55,8 @@ import { SharedModule } from './shared/shared.module';
       markedOptions: {
         provide: MarkedOptions,
         useFactory: markedOptionsFactory
-      }
+      },
+      sanitize: SecurityContext.NONE
     }),
     AppRoutingModule,
     ApolloModule,
